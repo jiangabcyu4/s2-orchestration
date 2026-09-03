@@ -69,6 +69,11 @@ description: 长任务 S2 多 Agent 编排执行。长任务（>5 分钟或需�
   3. 应急：已图片化 → `/new` 开新会话，关键结论先落盘。
   4. 兜底：子 agent 结果写文件 + completion event 文本。
 
+**视觉方案优先级**（图片/OCR/文档解析走视觉桥时按序选）：
+- **方案1（优先/默认，token 消耗小）**：百度 OCR（免费零 token，纯文字识别首选）。
+- **方案2（可选，token 消耗大）**：deepseek-v4-flash-vision-exp（精度更高、表格/复杂图更强；因 token 消耗大，作为"可选择项"，需要高精度时手动切换）。
+- **兜底**：MinerU（PDF/文档解析）+ glm-4v-flash（图像理解兜底）。
+
 ## 七、断点续传
 
 `任务_<名>_state.json` 最小字段：
