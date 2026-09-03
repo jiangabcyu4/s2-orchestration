@@ -205,7 +205,7 @@ read /tmp/research_policy.txt
 
 - **分块读**：read 用 `offset/limit`、exec 用 `head/tail/grep`，控制单次输出大小。
 - **大上下文下沉子 Agent**：把重活拆到独立子 Agent 里跑，结果落盘，主会话保持轻量。
-- **视觉桥**：图片/OCR/文档解析走视觉技能 `ds-vision-skill-plus`，把像素转成文字再交给主模型。**视觉方案优先级**：① 方案1 百度 OCR（免费零 token，纯文字识别首选）→ ② 方案2 deepseek-v4-flash-vision-exp（精度更高、表格/复杂图更强，token 消耗大可选手动切换）→ ③ 兜底 MinerU（PDF/文档解析）+ glm-4v-flash（图像理解兜底）。
+- **视觉桥**：图片/OCR/文档解析走视觉技能 `ds-vision-skill-plus`，把像素转成文字再交给主模型。**视觉方案优先级**：① 方案1 MinerU（PDF/文档解析）+ glm-4v-flash（图像理解）→ ② 方案2 deepseek-v4-flash-vision-exp（精度更高、表格/复杂图更强，token 消耗大可选手动切换）→ ③ 兜底 百度 OCR（免费但**现在有额度限制**，尽量少用）。
 
 ### 6.3 应急
 
